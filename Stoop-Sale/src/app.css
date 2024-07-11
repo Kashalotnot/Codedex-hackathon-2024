@@ -1,0 +1,17 @@
+@font-face{
+    font-family: 'Alphabet';
+    src: url('/src/lib/assets/BNAlphabyte-Regular.otf');
+}
+
+@font-face{
+    font-family: 'Futura';
+    src: url('/src/lib/assets/FuturaMedium.ttf');
+}
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
