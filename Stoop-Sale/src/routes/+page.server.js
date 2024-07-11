@@ -1,4 +1,4 @@
-import { getDocs, collection } from 'firebase/firestore'
+import { getDocs, collection, addDoc } from 'firebase/firestore'
 import { db, storage } from '$lib/firebase/firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
 
@@ -35,7 +35,7 @@ export async function load() {
 
         itemsQuerySnapshot.forEach((doc) => {
             items.push(doc.data()); 
-        });
+        }); 
 
         await updateItemsWithUrls(items);
 
@@ -50,3 +50,24 @@ export async function load() {
     }
    
 }
+
+export const actions = {
+    addEmail:  async ({ request }) => {
+        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        let data = await request.formData();
+        let email = data.get('email');
+
+        if (!emailRegex.test(email)) {
+            console.error('Invalid email:', email);
+            return;
+        }
+
+        try {
+            const emailsCollection = collection(db, 'user-emails');
+            await addDoc(emailsCollection, { email: email });
+        } catch (error) {
+            console.error('Error adding email:', error);
+        }
+    }
+};

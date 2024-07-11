@@ -1,5 +1,6 @@
 <script>
     import { app } from '$lib/firebase/firebase.js';
+    import { enhance } from '$app/forms';
     export let data;
     import Map from '$lib/components/Map/map.svelte';
     import CardSwipe from '$lib/components/CardSwipe/cardSwipe.svelte';
@@ -61,7 +62,7 @@
               
 
 
-    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center z-20">
+    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center z-20" id="items-section">
         <div class="w-[90%] h-[90%] block md:hidden">
             <CardSwipe items={bebra} />
         </div>
@@ -85,9 +86,18 @@
             </div>
         </div>
     </div>
-    <div class="bg-primary-500 w-full z-20">
-        <div class="flex justify-center items-center">
-            <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">Email</h1>
+    <div class="bg-primary-500 w-full flex justify-center items-center">
+        <div class="card p-4 variant-filled w-5/6 shadow-2xl text-center md:w-1/2 xl:w-1/3">
+            <div class="card-header h-[40px] bg-primary-500 mb-[-20px]">
+                <!-- image -->
+            </div>
+            <form method="POST" action="?/addEmail" use:enhance>
+                <label class="label block my-4">
+                    <span class="block">Let your email for invitation:</span>
+                    <input class="bg-gray-100 border border-gray-700 text-gray-800 placeholder-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " type="email" title="Email" placeholder="Email" name="email" required>     
+                </label>
+                <button class="btn variant-filled-secondary p-2 w-1/2 border-black">Send</button>
+            </form>
         </div>
     </div>
 
