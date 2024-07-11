@@ -1,37 +1,42 @@
 <script>
     import { app } from '$lib/firebase/firebase.js';
+    export let data;
     import Map from '$lib/components/Map/map.svelte';
-      import { CardSwiper } from '$lib/components/CardSwipe/index.ts'
-      let swipe = function(direction) {
-    if (direction === 'left') {
-        // Handle swipe left
-    } else if (direction === 'right') {
-        // Handle swipe right
-    } else {
-        // Handle no direction or other cases
-    }
-};
+    import { CardSwiper } from '$lib/components/CardSwipe/index.ts'
+  
+    let swipe = function(direction) {
+      if (direction === 'left') {
+          // Handle swipe left
+      } else if (direction === 'right') {
+          // Handle swipe right
+      } else {
+          // Handle no direction or other cases
+      }
+    };
 
-      let bebra = [
-		{
-			name: "bebra",
-			description: 'Super bebra'
-		},
-		{
-			name: "Bebra",
-			description: 'Prost Norm bebra'
-		}
-      ];
+    let bebra = [
+      {
+        name: "bebra",
+        description: 'Super bebra'
+      },
+      {
+        name: "Bebra",
+        description: 'Prost Norm bebra'
+      }
+    ];
+  
+    const date = new Date(data.stoopSale.Date);
+
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 because months are zero-indexed
+    const day = ('0' + date.getDate()).slice(-2);
+    const hours = ('0' + date.getHours()).slice(-2);
+    const minutes = ('0' + date.getMinutes()).slice(-2);
+
+    const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
 </script>
 
 <div class=" min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
-    <div class="text-secondary-500 w-full">
-        <AppBar background="bg-primary-500">
-            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "about-section")}}>About</button>
-            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "items-section")}}>Items</button>
-            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "where-section")}}>Where</button>
-        </AppBar>
-    </div>
     <div class="flex items-center justify-center flex-col space-y-2 ">
         <img class="" src="/src/lib/assets/staircase.png">
         <img class=" h-full" src="/src/lib/assets/staircase.png">
@@ -63,7 +68,7 @@
 
     <div class="bg-primary-500 w-full ">
         <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-6xl mb-3 text-secondary-500">{formattedDate}</h1>
+        <h1 class="font-alphabet text-xl mb-3 text-secondary-500">{formattedDate}</h1>
         </div>
     </div>
 
