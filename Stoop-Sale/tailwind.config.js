@@ -15,6 +15,15 @@ export default {
 			backgroundImage: {
 				'noise': "url('/src/lib/assets/noise.png')",
 		},
+		animation: {
+			'infinite-scroll': 'infinite-scroll 15s linear infinite',
+		  },
+		  keyframes: {
+			'infinite-scroll': {
+			  from: { transform: 'translateX(0)' },
+			  to: { transform: 'translateX(-100%)' },
+			}
+		  }                 
 	},
 },
 	plugins: [
