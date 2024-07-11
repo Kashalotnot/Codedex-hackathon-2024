@@ -3,7 +3,27 @@
     import { enhance } from '$app/forms';
     export let data;
     import Map from '$lib/components/Map/map.svelte';
-    import { CardSwiper } from '$lib/components/CardSwipe/index.ts'
+    import CardSwipe from '$lib/components/CardSwipe/cardSwipe.svelte';
+    import CardStack from '$lib/components/CardStack/cardStack.svelte';
+
+    let bebra = [
+        {
+            name: "bebra",
+            description: 'Super bebra'
+        },
+        {
+            name: "Bebra",
+            description: 'Prost Norm bebra'
+        },
+        {
+            name: "bebra",
+            description: 'Super bebra'
+        },
+        {
+            name: "Bebra",
+            description: 'Prost Norm bebra'
+        }
+    ];
   
     let swipe = function(direction) {
       if (direction === 'left') {
@@ -14,17 +34,6 @@
           // Handle no direction or other cases
       }
     };
-
-    let bebra = [
-      {
-        name: "bebra",
-        description: 'Super bebra'
-      },
-      {
-        name: "Bebra",
-        description: 'Prost Norm bebra'
-      }
-    ];
   
     const date = new Date(data.stoopSale.Date);
 
@@ -37,48 +46,44 @@
     const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
 </script>
 
-<div class=" min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
-    <div class="flex items-center justify-center flex-col space-y-2 ">
+<div class="min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
+    <div class="flex items-center justify-center flex-col space-y-2">
         <img class="" src="/src/lib/assets/staircase.png">
-        <img class=" h-full" src="/src/lib/assets/staircase.png">
-        <img class=" h-full" src="/src/lib/assets/staircase.png">
+        <img class="h-full" src="/src/lib/assets/staircase.png">
+        <img class="h-full" src="/src/lib/assets/staircase.png">
     </div>
-    <div class="bg-primary-500 w-full ">
-        <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">{data.stoopSale.Name}</h1>
-    </div>
-    </div>
+    <div class="bg-primary-500 w-full z-30">
+        <div class="flex justify-center items-center pb-3 bg-primary-500">
+                <h1 class="whitespace-nowrap font-alphabet text-9xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
+            </div>
+   
+</div>
+   
+              
 
-    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center" id="items-section"> <div class="w-[90%] h-[90%]"> <CardSwiper
-        bind:swipe
-        cardData={() => {
-            let i = Math.floor(Math.random() * bebra.length);
-            let j = Math.floor(Math.random() * bebra.length);
-            return {
-                title: bebra[i].name,
-                description: bebra[j].description,
-                image: `https://picsum.photos/1080/`
-            };
-        }}
-        on:swiped={(e) => {
-            console.log(e.detail);
-        }}
 
-     
-    /></div></div>
-
-    <div class="bg-primary-500 w-full ">
-        <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-xl mb-3 text-secondary-500">{formattedDate}</h1>
+    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center z-20" id="items-section">
+        <div class="w-[90%] h-[90%] block md:hidden">
+            <CardSwipe items={bebra} />
+        </div>
+        <div class="w-full h-full absolute flex justify-center items-center hidden md:block">
+            <div class="flex w-full h-full justify-center items-center">
+            <CardStack items={bebra}/>
+        </div>
         </div>
     </div>
 
-    <div class="bg-primary-500 w-full " id="where-section">
+    <div class="relative bg-primary-500 w-full z-20">
+        <div class="flex justify-center items-center">
+            <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">DATE</h1>
+        </div>
+    </div>
+    <div class="relative bg-secondary-500 w-full z-20">
 
         <div class="flex justify-center items-center">
-        <div class="bg-secondary-500  border-[3px] border-primary-500 w-[90%] h-60 rounded-lg my-3">
-            <Map />
-        </div>
+            <div class="bg-secondary-500 border-[3px] border-primary-500 w-[90%] h-60 rounded-lg my-3">
+                <Map />
+            </div>
         </div>
     </div>
     <div class="bg-primary-500 w-full flex justify-center items-center">
@@ -95,12 +100,11 @@
             </form>
         </div>
     </div>
+
     <div class="bg-primary-500 w-full " id="about-section">
+
         <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">ABOUT</h1>
+            <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">ABOUT</h1>
         </div>
     </div>
-
-
 </div>
-
