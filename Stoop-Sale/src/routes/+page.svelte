@@ -25,6 +25,13 @@
 </script>
 
 <div class=" min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
+    <div class="text-secondary-500 w-full">
+        <AppBar background="bg-primary-500">
+            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "about-section")}}>About</button>
+            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "items-section")}}>Items</button>
+            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "where-section")}}>Where</button>
+        </AppBar>
+    </div>
     <div class="flex items-center justify-center flex-col space-y-2 ">
         <img class="" src="/src/lib/assets/staircase.png">
         <img class=" h-full" src="/src/lib/assets/staircase.png">
@@ -32,10 +39,11 @@
     </div>
     <div class="bg-primary-500 w-full ">
         <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">Current Sale</h1>
+        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">{data.stoopSale.Name}</h1>
     </div>
     </div>
-    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center"> <div class="w-[90%] h-[90%]"> <CardSwiper
+
+    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center" id="items-section"> <div class="w-[90%] h-[90%]"> <CardSwiper
         bind:swipe
         cardData={() => {
             let i = Math.floor(Math.random() * bebra.length);
@@ -52,12 +60,15 @@
 
      
     /></div></div>
+
     <div class="bg-primary-500 w-full ">
         <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">DATE</h1>
+        <h1 class="font-alphabet text-6xl mb-3 text-secondary-500">{formattedDate}</h1>
         </div>
     </div>
-    <div class="bg-secondary-500  w-full ">
+
+    <div class="bg-primary-500 w-full " id="where-section">
+
         <div class="flex justify-center items-center">
         <div class="bg-secondary-500  border-[3px] border-primary-500 w-[90%] h-60 rounded-lg my-3">
             <Map />
@@ -69,7 +80,7 @@
         <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">Email</h1>
         </div>
     </div>
-    <div class="bg-primary-500 w-full ">
+    <div class="bg-primary-500 w-full " id="about-section">
         <div class="flex justify-center items-center">
         <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">ABOUT</h1>
         </div>
