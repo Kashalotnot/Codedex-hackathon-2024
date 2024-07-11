@@ -1,5 +1,8 @@
 <script>
     import { app } from '$lib/firebase/firebase.js';
+    export let data;
+
+    console.log(data);
 </script>
 
 <div class=" min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
