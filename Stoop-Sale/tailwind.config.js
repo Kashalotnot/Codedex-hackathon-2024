@@ -11,9 +11,12 @@ export default {
 			fontFamily: {
 				alphabet: ["Alphabet", 'serif'],
 				futura: ["Futura", 'sans-serif'],
-			}
+			},
+			backgroundImage: {
+				'noise': "url('/src/lib/assets/noise.png')",
 		},
 	},
+},
 	plugins: [
 		skeleton({
 			themes: {
