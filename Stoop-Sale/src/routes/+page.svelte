@@ -1,6 +1,5 @@
 <script>
     import { app } from '$lib/firebase/firebase.js';
-    import { AppBar } from '@skeletonlabs/skeleton';
     export let data;
     console.log(data);
 
@@ -13,25 +12,9 @@
     const minutes = ('0' + date.getMinutes()).slice(-2);
 
     const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
-
-    function scrollToSection(e, targetSection) {
-        e.preventDefault();
-        console.log("section");
-        const section = document.getElementById(targetSection);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
 </script>
 
 <div class=" min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
-    <div class="text-secondary-500 w-full">
-        <AppBar background="bg-primary-500">
-            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "about-section")}}>About</button>
-            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "items-section")}}>Items</button>
-            <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "where-section")}}>Where</button>
-        </AppBar>
-    </div>
     <div class="flex items-center justify-center flex-col space-y-2 ">
         <img class="" src="/src/lib/assets/staircase.png">
         <img class=" h-full" src="/src/lib/assets/staircase.png">
@@ -45,7 +28,7 @@
     <div class="w-full h-dvh bg-secondary-500" id="items-section">SCROLL!!!</div>
     <div class="bg-primary-500 w-full ">
         <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-6xl mb-3 text-secondary-500">{formattedDate}</h1>
+        <h1 class="font-alphabet text-xl mb-3 text-secondary-500">{formattedDate}</h1>
         </div>
     </div>
     <div class="bg-primary-500 w-full " id="where-section">
