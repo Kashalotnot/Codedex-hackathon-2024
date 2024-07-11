@@ -1,27 +1,27 @@
 <script>
     import { app } from '$lib/firebase/firebase.js';
-    import { AppBar } from '@skeletonlabs/skeleton';
-    export let data;
-    console.log(data);
-
-    const date = new Date(data.stoopSale.Date);
-
-    const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 because months are zero-indexed
-    const day = ('0' + date.getDate()).slice(-2);
-    const hours = ('0' + date.getHours()).slice(-2);
-    const minutes = ('0' + date.getMinutes()).slice(-2);
-
-    const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
-
-    function scrollToSection(e, targetSection) {
-        e.preventDefault();
-        console.log("section");
-        const section = document.getElementById(targetSection);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
+    import Map from '$lib/components/Map/map.svelte';
+      import { CardSwiper } from '$lib/components/CardSwipe/index.ts'
+      let swipe = function(direction) {
+    if (direction === 'left') {
+        // Handle swipe left
+    } else if (direction === 'right') {
+        // Handle swipe right
+    } else {
+        // Handle no direction or other cases
     }
+};
+
+      let bebra = [
+		{
+			name: "bebra",
+			description: 'Super bebra'
+		},
+		{
+			name: "Bebra",
+			description: 'Prost Norm bebra'
+		}
+      ];
 </script>
 
 <div class=" min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
@@ -42,20 +42,42 @@
         <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">{data.stoopSale.Name}</h1>
     </div>
     </div>
-    <div class="w-full h-dvh bg-secondary-500" id="items-section">SCROLL!!!</div>
+
+    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center" id="items-section"> <div class="w-[90%] h-[90%]"> <CardSwiper
+        bind:swipe
+        cardData={() => {
+            let i = Math.floor(Math.random() * bebra.length);
+            let j = Math.floor(Math.random() * bebra.length);
+            return {
+                title: bebra[i].name,
+                description: bebra[j].description,
+                image: `https://picsum.photos/1080/`
+            };
+        }}
+        on:swiped={(e) => {
+            console.log(e.detail);
+        }}
+
+     
+    /></div></div>
+
     <div class="bg-primary-500 w-full ">
         <div class="flex justify-center items-center">
         <h1 class="font-alphabet text-6xl mb-3 text-secondary-500">{formattedDate}</h1>
         </div>
     </div>
+
     <div class="bg-primary-500 w-full " id="where-section">
+
         <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">OMG WHERE?</h1>
+        <div class="bg-secondary-500  border-[3px] border-primary-500 w-[90%] h-60 rounded-lg my-3">
+            <Map />
+        </div>
         </div>
     </div>
     <div class="bg-primary-500 w-full ">
         <div class="flex justify-center items-center">
-        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">Email Form</h1>
+        <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">Email</h1>
         </div>
     </div>
     <div class="bg-primary-500 w-full " id="about-section">
