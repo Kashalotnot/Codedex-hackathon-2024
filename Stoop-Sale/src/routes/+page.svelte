@@ -52,15 +52,15 @@
         <img class="h-full" src="/src/lib/assets/staircase.png">
     </div>
     <div class="bg-primary-500 w-full z-30">
-        <div class="flex justify-center items-center">
-            <div class="w-full inline-flex flex-nowrap mb-3">
-                
-                <h1 class="whitespace-nowrap flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll font-alphabet text-9xl mb-3 text-secondary-500 mr-8">{data.stoopSale.Name} |</h1>
-
-                    <h1 class="whitespace-nowrap flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll font-alphabet text-9xl mb-3 text-secondary-500">{data.stoopSale.Name}</h1>
-
+        <div class="flex justify-center items-center pb-3 bg-primary-500">
+                <h1 class="whitespace-nowrap font-alphabet text-9xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
             </div>
-    </div>
+   
+</div>
+   
+              
+
+
     <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center z-20">
         <div class="w-[90%] h-[90%] block md:hidden">
             <CardSwipe items={bebra} />
@@ -97,5 +97,4 @@
             <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">ABOUT</h1>
         </div>
     </div>
-</div>
 </div>
