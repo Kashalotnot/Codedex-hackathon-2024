@@ -1,10 +1,10 @@
 import { store } from "$lib/store/store";
 
-export function GET(req) {
-    return new Response('Hello, world!');
-}
-
-export function POST(req) {
-    let date = store.date
-    console.log(date)
+export default function handler(req, res) {
+    if (req.method === 'GET') {
+        console.log('Scheduled GET request');
+        res.status(200).send('Hello, world!');
+    } else {
+        res.status(405).send('Method Not Allowed');
+    }
 }
