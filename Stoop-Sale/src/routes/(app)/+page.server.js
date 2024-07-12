@@ -13,9 +13,72 @@ async function updateItemsWithUrls(items) {
     await Promise.all(promises);
 }
 
+async function getImageUrl(name) {
+    let storageRef = ref(storage, name); 
+    return await getDownloadURL(storageRef);
+}
+
 export async function load() {
     let stoopSale;
     let items = [];
+
+    let images = [];
+    let image;
+    let name;
+
+    name = 'bag.png';
+    image = await getImageUrl(name);
+    images.push(image);
+    
+    name = 'Stars.png';
+    images.push(await getImageUrl(name));
+
+    name = 'about.png';
+    images.push(await getImageUrl(name));
+
+    name = 'boots.png';
+    images.push(await getImageUrl(name));
+
+    name = 'braclet.png';
+    images.push(await getImageUrl(name));
+
+    name = 'dress.png';
+    images.push(await getImageUrl(name));
+
+    name = 'funny_shoes.png';
+    images.push(await getImageUrl(name));
+
+    name = 'hat_1.png';
+    images.push(await getImageUrl(name));
+
+    name = 'hat_2.png';
+    images.push(await getImageUrl(name));
+
+    name = 'image.png';
+    images.push(await getImageUrl(name));
+
+    name = 'jacket.png';
+    images.push(await getImageUrl(name));
+
+    name = 'jewellery.png';
+    images.push(await getImageUrl(name));
+
+    name = 'mobile_stairs.png';
+    images.push(await getImageUrl(name));
+
+    name = 'stairs_desktop.png';
+    images.push(await getImageUrl(name));
+
+    name = 'sunglasses.png';
+    images.push(await getImageUrl(name));
+
+    name = 'sweater.png';
+    images.push(await getImageUrl(name));
+
+    name = 'tets.png';
+    images.push(await getImageUrl(name));
+
+
 
     try {
         let documentId;
@@ -44,7 +107,8 @@ export async function load() {
 
         return {
             stoopSale: stoopSale,
-            items: items
+            items: items,
+            images: images
         };
       
 
