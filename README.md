@@ -1,5 +1,5 @@
 # Stoop Sale Website
-The Stoop Sale Website is a dynamic platform designed for the codedex-hackathon-2024.
+The Stoop Sale Website is a dynamic platform designed for the codedex-hackathon-2024. [ADMIN: email: bebra@gmail.com, password: 123456]
 
 ## Overview
 The Stoop Sale Invitation Website is deployed for hosts Stoop Sales to invite peaple, manage event details. It features a public page accessible to anyone interested in the event, and an admin page for hosts to perform administrative actions.
