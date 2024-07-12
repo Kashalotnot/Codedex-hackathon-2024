@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="flex flex-col md:flex-row md:justify-center items-center h-[25rem]">
-        <div class="flex justify-center items-center bg-sunflower w-full h-full z-20 border-[3px] border-charcoal">
+        <div class="flex justify-center items-center bg-sunflower w-full h-full z-20 border-[3px] border-r-[2px] border-b-[2px] border-charcoal">
             <div class="flex flex-col justify-center items-center p-3">
                 <h1 class="font-alphabet text-7xl mb-3 text-secondary-500">{formattedDate}</h1>
                 <h1 class="font-alphabet text-5xl mb-3 text-secondary-500">{formattedHours}</h1>
