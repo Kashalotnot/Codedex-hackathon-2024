@@ -1,6 +1,7 @@
 import { getDocs, collection, addDoc } from 'firebase/firestore'
 import { db, storage } from '$lib/firebase/firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
+import { store } from '$lib/store/store'
 
 async function updateItemsWithUrls(items) {
     const promises = items.map(async (item) => {
@@ -29,6 +30,7 @@ export async function load() {
             }
         });
         stoopSale.Date = stoopSale.Date.toDate();
+        store.set({ date: stoopSale.Date  });
 
         const itemsCollection = collection(db, 'Stoop-Sale', documentId, 'Items');
         const itemsQuerySnapshot = await getDocs(itemsCollection);
