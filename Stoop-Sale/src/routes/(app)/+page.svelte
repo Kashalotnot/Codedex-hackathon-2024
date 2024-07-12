@@ -58,7 +58,7 @@
             </div>
 
             <!--Huge block of header images(images on stairs)-->
-            <img class="hidden md:block w-full h-[400px] mt-8" src="/src/lib/assets/stairs_desktop.png">
+            <img class="hidden md:block w-full h-[400px] mt-8" src="/.vercel/output/static/stairs_desktop.png">
             <img class="absolute hidden xxs:inline w-[6rem] xs:w-[8rem] top-36 right-40 xl:right-56 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/dress.png">
             <img class="absolute block w-[4rem] xs:w-[6rem] bottom-0 left-10 xl:left-20 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/jewellery.png">
             <img class="absolute block w-[8rem] xs:w-[10rem] top-12 right-10 xl:right-24 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/bag.png">
