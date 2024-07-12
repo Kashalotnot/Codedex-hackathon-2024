@@ -9,19 +9,23 @@
     let bebra = [
         {
             name: "bebra",
-            description: 'Super bebra'
+            description: 'Super bebra',
+            image: '/src/lib/assets/Items/jacket.png'
         },
         {
             name: "Bebra",
-            description: 'Prost Norm bebra'
+            description: 'Prost Norm bebra',
+            image: '/src/lib/assets/Items/jewellery.png'
         },
         {
             name: "bebra",
-            description: 'Super bebra'
+            description: 'Super bebra',
+            image: '/src/lib/assets/Items/sunglasses.png'
         },
         {
             name: "Bebra",
-            description: 'Prost Norm bebra'
+            description: 'Prost Norm bebra',
+            image: '/src/lib/assets/Items/dress.png'
         }
     ];
   
@@ -52,22 +56,65 @@
     <div class="space-y-2">
         <div class="relative h-[400px]">
 
-        <img class="md:hidden w-full h-[400px] " src="/src/lib/assets/test_mobile2.png">
+        <img class="md:hidden w-full h-[400px] mt-8 " src="/src/lib/assets/mobile_stairs.png">
+        <div class="w-full h-full hidden md:inline">
+     <h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-[-40px] left-36 lg:left-48 xl:left-64 pb-3 text-secondary-500">
+  {data.stoopSale.Name.split(' ')[0]}
+</h1>
+<h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-24 left-64 md:left-80 lg:left-96 xl:left-[35rem] pb-3 text-secondary-500">
+  {data.stoopSale.Name.split(' ')[1]}
+</h1>
+<h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-56 right-64 lg:right-80 xl:right-96 pb-3 text-secondary-500">
+  {data.stoopSale.Name.split(' ')[2]}
+</h1>
+</div>
+<img class="hidden md:block w-full h-[400px] mt-8" src="/src/lib/assets/stairs_desktop.png">
 
-        <img class="absolute block md:hidden w-[10rem] h-[10rem] top-12 right-10" src="/src/lib/assets/bag.png">
+<img class="absolute hidden xxs:inline w-[6rem] xs:w-[8rem] top-36 right-40 xl:right-56 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/dress.png">
+
+<img class="absolute block w-[4rem] xs:w-[6rem] bottom-0 left-10 xl:left-20 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/jewellery.png">
+
+<img class="absolute block w-[8rem] xs:w-[10rem] top-12 right-10 xl:right-24 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/bag.png">
+
+<img class="absolute block w-[8rem] xs:w-[10rem] lg:w-[15rem] lg:top-[-1rem] top-0 left-10 xl:left-24 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/jacket.png">
+
+<img class="absolute block w-[8rem] xs:w-[10rem] bottom-0 right-10 xl:right-24 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/hat_1.png">
+
+<img class="absolute block w-[8rem] xs:w-[10rem] top-0 right-20 xl:right-36 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/sunglasses.png">
+<img class="absolute hidden lg:block top-[-1rem] right-80 w-[7rem]  hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/boots.png">
+
+
+<img class="absolute hidden md:block w-[8rem] xs:w-[10rem] bottom-0 left-52 lg:left-56 xl:left-64 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/sweater.png">
+
+<img class="absolute block w-[8rem] xs:w-[10rem] bottom-36 left-10 lg:left-36 xl:left-48 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/hat_2.png">
+<img class="absolute hidden xl:block  top-[-1rem] right-[38rem] w-[7rem]  hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/braclet.png">
+<img class="absolute hidden xl:block  bottom-0 left-[36rem] w-[7rem]   hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/funny_shoes.png">
+
+
     </div>
     </div>
-    <div class="bg-cream w-full z-30">
+    <div class="bg-cream w-full z-30 block md:hidden">
         <div class="flex justify-center items-center pb-3">
-            <h1 class="whitespace-nowrap font-alphabet text-9xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
+            <h1 class="whitespace-break-spaces font-alphabet text-9xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
+        </div>
+    </div>
+    <div class="bg-primary-500 w-full " id="about-section">
+
+        <div class="flex justify-center items-center">
+            <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">ABOUT</h1>
         </div>
     </div>
     <div class="w-full h-dvh bg-charcoal flex justify-center items-center z-20" id="items-section">
         <div class="w-[90%] h-[90%] block md:hidden">
             <CardSwipe items={bebra} />
         </div>
+        
         <div class="w-full h-full absolute flex justify-center items-center hidden md:block">
-            <div class="flex w-full h-full justify-center items-center">
+            <div class="mt-8">
+            <h1 class="text-5xl font-alphabet text-sunflower text-center"> We love our items so much!</h1>
+            <h3 class="text-2xl text-cream text-center">But maybe you will love them more</h3>
+        </div>
+            <div class="flex w-full h-[80%] justify-center items-center">
             <CardStack items={bebra}/>
         </div>
         </div>
@@ -100,10 +147,5 @@
         </div>
     </div>
 
-    <div class="bg-primary-500 w-full " id="about-section">
 
-        <div class="flex justify-center items-center">
-            <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">ABOUT</h1>
-        </div>
-    </div>
 </div>
