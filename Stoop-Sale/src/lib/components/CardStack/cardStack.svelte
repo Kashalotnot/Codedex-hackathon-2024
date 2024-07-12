@@ -1,14 +1,10 @@
 <script>
     export let items = [];
+    console.log(items);
 
     let timeouts = new Array(items.length).fill(null);
 </script>
-
-
-
-          
-
-          
+         
       
           {#each items as item, index}
             <div
@@ -39,7 +35,4 @@
             
           {/each}
           
-          
-          
-
-    
+         

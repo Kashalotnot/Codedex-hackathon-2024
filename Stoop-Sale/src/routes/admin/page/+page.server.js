@@ -34,8 +34,6 @@ export async function load({ cookies }) {
           querySnapshot.forEach((doc) => {
             emails.push(doc.data());
           });
-    
-          console.log(emails);
       
         } catch (error) {
           console.error('Error fetching emails:', error);
@@ -87,6 +85,17 @@ export const actions = {
         } catch (error) {
             console.error('Error adding admin:', error);
             throw error;
+        }
+    },
+
+    addStoopSale: async ({ request }) => {
+        try{
+            const data = await request.formData();
+            console.log('Data:', data);
+            console.log('images:', data.getAll('itemImages'));
+            
+        } catch (error) {
+            console.error('Error adding stoop sale:', error);
         }
     }
 };
