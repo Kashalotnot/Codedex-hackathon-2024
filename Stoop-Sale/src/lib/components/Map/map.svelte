@@ -24,6 +24,7 @@ async function start() {
 			mapId: 'mapid',
 			disableDefaultUI: true
 		});
+	//Marker to a current location
     const marker = new AdvancedMarkerElement({
     map: map,
     position: position,

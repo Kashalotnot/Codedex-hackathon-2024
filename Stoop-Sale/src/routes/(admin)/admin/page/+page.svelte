@@ -20,7 +20,11 @@
 
  let file;
  let collection;
+
 </script>
+<svelte:head>
+	<title>Admin panel</title>
+</svelte:head>
 <div class="relative h-[3rem] bg-charcoal-secondary w-full text-cream">
  <div class="absolute inset-0 flex justify-center items-center">
      <h1 class="text-3xl">Admin Page</h1>
