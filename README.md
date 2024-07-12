@@ -13,7 +13,7 @@ The Stoop Sale Invitation Website is deployed for hosts Stoop Sales to invite pe
   - **Create Stoop Sales Events:** Allow to create events, setting date, time, location, and some items for sale.
   - **Update Event Details:** Allows for the updating of event information, which is then reflected on the public page.
   - **User Managemant:** Allows to manage user auth: adding new admins.
-  - 
+  
 ## Tech Stack
 - SvelteKit
 - Firebase
