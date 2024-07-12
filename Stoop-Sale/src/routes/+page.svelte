@@ -99,7 +99,7 @@
             <h1 class=" mt-5 whitespace-break-spaces font-alphabet text-4xl xs:text-5xl sm:text-6xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
         </div>
     </div>
-    <div class="relative flex flex-col sm:flex-row md:justify-center items-center w-full h-full mt-5 bg-sunflower bg-noise4">
+    <div class="relative flex flex-col sm:flex-row md:justify-center items-center w-full h-full mt-5 bg-sunflower bg-noise4" id="about-section">
         <!-- Image Container -->
         <div class="flex justify-center items-center w-full h-full z-20 ">
           <div class="flex flex-col justify-center items-center p-3 w-full h-full">
@@ -161,22 +161,24 @@
             </div>
         </div>
     
-        <div class="flex bg-cream w-full h-full z-20 border-[2px] border-t-[3px] border-charcoal" id="where-section">
-            <div class="flex justify-center items-center w-full h-full">
-                <div class="bg-secondary-500 border-[3px] border-primary-500 w-[90%] h-60 rounded-lg my-3">
-                    <Map />
+        <div class="flex bg-charcoal w-full h-full z-20 border-[2px] border-t-[3px] border-charcoal" id="where-section">
+            <div class="flex justify-center w-full h-full">
+                <div class="flex justify-center  bg-cream border-[3px] mt-8 border-cream w-[95%] h-[80%] rounded-lg my-3">
+                    <div class="relative mt-10 bg-charcoal-secondary bottom- border-[3px] border-charcoal-secondary  w-[90%] h-60 rounded-lg my-3">
+                        <Map />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bg-cream w-full flex justify-center items-center p-4 border-[2px] border-charcoal">
-        <div class="card p-4 variant-filled w-5/6 shadow-2xl text-center md:w-1/2 xl:w-1/3">
+    <div class="bg-cream w-full flex justify-center items-center p-4 border-[2px] border-b-0 border-charcoal mb-5">
+        <div class="card p-4 variant-filled-primary am variant-filled w-5/6 shadow-2xl text-center mt-10 md:mt-2 md:w-1/2 xl:w-[40%]">
             <form method="POST" action="?/addEmail" use:enhance>
                 <label class="label block my-4">
-                    <span class="block">Let your email for invitation:</span>
-                    <input class="bg-gray-100 border border-gray-700 text-gray-800 placeholder-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " type="email" title="Email" placeholder="Email" name="email" required>     
+                    <span class="block mb-3 font-alphabet text-2xl text-magma">Let your email for invitation:</span>
+                    <input class="bg-gray-100 border-[1px] border-sunflower shadow-md text-lg text-charcoal placeholder-charcoal-secondary text-sm rounded-lg focus:ring-magma focus:border-magma block w-full p-[8px] " type="email" title="Email" placeholder="Email" name="email" required>     
                 </label>
-                <button class="btn variant-filled-secondary p-2 w-1/2 border-black">Send</button>
+                <button class="rounded-lg mt-2 mb-1 bg-magma hover:bg-sunflower p-1.5 w-1/2 border-[1.3px] border-charcoal font-alphabet text-sunflower text-xl hover:text-magma">Send</button>
             </form>
         </div>
     </div>
