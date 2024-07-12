@@ -68,6 +68,7 @@
   {data.stoopSale.Name.split(' ')[2]}
 </h1>
 </div>
+
 <img class="hidden md:block w-full h-[400px] mt-8" src="/src/lib/assets/stairs_desktop.png">
 
 <img class="absolute hidden xxs:inline w-[6rem] xs:w-[8rem] top-36 right-40 xl:right-56 hover:animate-tilt-n-move-shaking" src="/src/lib/assets/Items/dress.png">
@@ -98,14 +99,45 @@
             <h1 class=" mt-5 whitespace-break-spaces font-alphabet text-4xl xs:text-5xl sm:text-6xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
         </div>
     </div>
-    <div class="bg-sunflower w-full bg-noise3 " id="about-section">
-
-        <div class="relative w-full h-full flex justify-center items-center bg-sunflower">
-            <div class="absolute inset-0 bg-noise3 opacity-60"></div>
-            <h1 class="relative font-alphabet text-9xl mb-3 text-white">ABOUT</h1>
+    <div class="relative flex flex-col sm:flex-row md:justify-center items-center w-full h-full mt-5 bg-sunflower bg-noise4">
+        <!-- Image Container -->
+        <div class="flex justify-center items-center w-full h-full z-20 ">
+          <div class="flex flex-col justify-center items-center p-3 w-full h-full">
+            <img class="relative max-w-[80%] md:max-w-[60%] lg:max-w-[50%] max-h-[80%] my-5 rounded-xl object-contain z-10" src="src/lib/assets/image.png" alt="Image">
           </div>
+        </div>
+      
+        <!-- Text Container -->
+        <div class="flex w-full h-full z-20" id="about_section">
+            <div class="flex justify-center items-center w-full h-full">
+              <div class="w-full h-full rounded-lg flex flex-col justify-center items-center p-8 z-10">
+                <!-- Text and Image Container -->
+                <div class="relative bg-center">
+                  <!-- Text Overlay -->
+                  <h1 class="mb-3 whitespace-nowrap font-alphabet text-5xl">
+                    Nice to meet you!
+                  </h1>
+                  <!-- Stars Image -->
+                  <img class="absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-[30rem]" src="src/lib/assets/stars.png" alt="Stars">
+                </div>
+                <!-- Paragraph Text -->
+                <p class="text-xl p-8">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit, amet consectetur
+                  adipisicing elit. Quidem consequatur deleniti, doloribus impedit sint tempora autem? Molestiae delectus nam temporibus.
+                </p>
+                <!-- Additional Image -->
+                <img class="w-40" src="/src/lib/assets/tets.png" alt="Tets">
+              </div>
+           
+                    
+            </div>
+     
           
-    </div>
+          
+        </div>
+      </div>
+      
+
     <div class="relative w-full h-screen bg-charcoal bg-blend-overlay flex justify-center items-center z-20" id="items-section">
         <div class="absolute inset-0 bg-noise3 opacity-30"></div>
         <div class="relative w-[90%] h-[90%] block md:hidden">
