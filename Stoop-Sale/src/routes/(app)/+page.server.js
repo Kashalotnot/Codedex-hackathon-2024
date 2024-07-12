@@ -78,6 +78,9 @@ export async function load() {
     name = 'tets.png';
     images.push(await getImageUrl(name));
 
+    name = 'tape.png';
+    images.push(await getImageUrl(name));
+
 
 
     try {
