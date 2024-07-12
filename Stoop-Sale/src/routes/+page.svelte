@@ -38,31 +38,31 @@
     const date = new Date(data.stoopSale.Date);
 
     const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 because months are zero-indexed
+    const month = date.toLocaleString('en-US', { month: 'long' });
     const day = ('0' + date.getDate()).slice(-2);
     const hours = ('0' + date.getHours()).slice(-2);
     const minutes = ('0' + date.getMinutes()).slice(-2);
 
-    const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+    const formattedDate = `${day} ${month}`;
+    const formattedHours = `${hours}:${minutes}`;
 </script>
 
-<div class="min-h-dvh bg-noise w-screen bg-surface-500 bg-blend-soft-light overflow-x-hidden">
-    <div class="flex items-center justify-center flex-col space-y-2">
-        <img class="" src="/src/lib/assets/staircase.png">
-        <img class="h-full" src="/src/lib/assets/staircase.png">
-        <img class="h-full" src="/src/lib/assets/staircase.png">
+<div class="min-h-dvh bg-noise w-screen bg-cream bg-blend-soft-light overflow-x-hidden">
+    <div class="space-y-2">
+        <div class="relative h-[400px]">
+
+        <img class="md:hidden w-full h-[400px] " src="/src/lib/assets/test_mobile2.png">
+
+        <img class="absolute block md:hidden w-[10rem] h-[10rem] top-12 right-10" src="/src/lib/assets/bag.png">
     </div>
-    <div class="bg-primary-500 w-full z-30">
-        <div class="flex justify-center items-center pb-3 bg-primary-500">
-                <h1 class="whitespace-nowrap font-alphabet text-9xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
-            </div>
-   
-</div>
-   
-              
-
-
-    <div class="w-full h-dvh bg-tertiary-500 flex justify-center items-center z-20" id="items-section">
+    </div>
+    <div class="bg-cream w-full z-30">
+        <div class="flex justify-center items-center pb-3">
+            <h1 class="whitespace-nowrap font-alphabet text-9xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
+        </div>
+    </div>
+    <div class="w-full h-dvh bg-charcoal flex justify-center items-center z-20" id="items-section">
         <div class="w-[90%] h-[90%] block md:hidden">
             <CardSwipe items={bebra} />
         </div>
@@ -72,25 +72,24 @@
         </div>
         </div>
     </div>
-
-    <div class="relative bg-primary-500 w-full z-20">
-        <div class="flex justify-center items-center">
-            <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">DATE</h1>
+    <div class="flex flex-col md:flex-row md:justify-center items-center h-[25rem]">
+        <div class="flex justify-center items-center bg-sunflower w-full h-full z-20 border-[3px] border-charcoal">
+            <div class="flex flex-col justify-center items-center p-3">
+                <h1 class="font-alphabet text-7xl mb-3 text-secondary-500">{formattedDate}</h1>
+                <h1 class="font-alphabet text-5xl mb-3 text-secondary-500">{formattedHours}</h1>
+            </div>
         </div>
-    </div>
-    <div class="relative bg-secondary-500 w-full z-20">
-
-        <div class="flex justify-center items-center">
-            <div class="bg-secondary-500 border-[3px] border-primary-500 w-[90%] h-60 rounded-lg my-3">
-                <Map />
+    
+        <div class="flex bg-cream w-full h-full z-20 border-[2px] border-t-[3px] border-charcoal" id="where-section">
+            <div class="flex justify-center items-center w-full h-full">
+                <div class="bg-secondary-500 border-[3px] border-primary-500 w-[90%] h-60 rounded-lg my-3">
+                    <Map />
+                </div>
             </div>
         </div>
     </div>
-    <div class="bg-primary-500 w-full flex justify-center items-center">
+    <div class="bg-cream w-full flex justify-center items-center p-4 border-[2px] border-charcoal">
         <div class="card p-4 variant-filled w-5/6 shadow-2xl text-center md:w-1/2 xl:w-1/3">
-            <div class="card-header h-[40px] bg-primary-500 mb-[-20px]">
-                <!-- image -->
-            </div>
             <form method="POST" action="?/addEmail" use:enhance>
                 <label class="label block my-4">
                     <span class="block">Let your email for invitation:</span>

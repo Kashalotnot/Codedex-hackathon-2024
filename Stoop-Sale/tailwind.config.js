@@ -15,21 +15,15 @@ export default {
 			backgroundImage: {
 				'noise': "url('/src/lib/assets/noise.png')",
 		},
-		animation: {
-			marquee: 'marquee 5s linear infinite',
-			marquee2: 'marquee2 5s linear infinite',
-		  },
-		  keyframes: {
-			marquee: {
-			  '0%': { transform: 'translateX(0%)' },
-			  '100%': { transform: 'translateX(-100%)' },
-			},
-			marquee2: {
-				'0%': { transform: 'translateX(100%)' },
-				'100%': { transform: 'translateX(0%)' },
-			  },
-
-		  },              
+		colors: {
+			'cream': '#f3e6d4;',
+			'charcoal': '#333',
+			'magma': '#f75d33',
+			'charcoal-secondary': '#333333b8',
+			'sunflower': '#ffc351',
+			'white-tertiary': '#ffffff1f',
+			'black-tertiary': '#0000001f'
+		}    
 	},
 },
 	plugins: [

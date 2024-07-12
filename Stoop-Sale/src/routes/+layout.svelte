@@ -12,8 +12,8 @@
     }
 </script>
 
-<div class="text-secondary-500 w-full">
-    <AppBar background="bg-primary-500">
+<div class="text-secondary-500 w-full border-4">
+    <AppBar background="bg-cream">
         <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "about-section")}}>About</button>
         <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "items-section")}}>Items</button>
         <button class="btn variant-ringed-primary" on:click={(e) => {scrollToSection(e, "where-section")}}>Where</button>
