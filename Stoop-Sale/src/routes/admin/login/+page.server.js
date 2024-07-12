@@ -7,6 +7,7 @@ export const actions ={
         let data = await request.formData();
         let email = data.get('email');
         let password = data.get('password');
+
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
         } catch (error) {

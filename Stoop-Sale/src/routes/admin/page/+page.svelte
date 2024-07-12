@@ -1,4 +1,5 @@
 <script>
+   	import { enhance } from '$app/forms';
     export let data;
     let showForm = false;
     let showStopSaleForm = false;
@@ -18,6 +19,7 @@
     }
 
     let file;
+    let collection;
 
     function onRead() {
         file = imageInput.files[0];
@@ -87,8 +89,8 @@
                         </h1>
                         <form class="space-y-4 md:space-y-6" method="POST" action="?/addStoopSale" >
                             <div>
-                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                <input type="text" name="name" id="name" class="rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Stoop Sale" required="">
+                                <label for="name"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                                <input type="text" bind:value={collection} name="name" id="name" class="rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Stoop Sale" required="">
                             </div>
                             <div>
                                 <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place</label>
@@ -109,17 +111,24 @@
                                 <input type="hidden" name="itemNames" bind:value={itemNames}>
                                 <input type="hidden" name="itemImages" bind:value={itemImages}>
                                 {#if showItemsForm}
-                                <form  class="mt-4 p-4 border rounded-lg bg-gray-800" enctype="multipart/form-data">
+                                <form use:enhance class="mt-4 p-4 border rounded-lg bg-gray-800" enctype="multipart/form-data" method="POST" action="?/addItem">
                                     <div>
                                         <label for="itemName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item Name</label>
-                                        <input bind:value={itemName} type="text" name="itemName" id="itemName" class="rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Item Name" required="">
+                                        <input type="text" name="itemName" id="itemName" class="rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Item Name" required="">
                                     </div>
                                     <div class="mt-4">
                                         <label for="itemImage" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item Image</label>
-                                        <input bind:this={imageInput} on:change={onRead} type="file" name="itemImage" id="itemImage" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                                        <input accept="image/*"  type="file" name="itemImage" id="itemImage" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
                                     </div>
+
+                                    <input type="hidden" bind:value={collection} name="collection" id="collection" class="rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Stoop Sale" required>
+
                                     <div>
-                                        <button on:click|stopPropagation={() => {itemNames = [...itemNames, itemName]; itemImages = [...itemImages, file]; console.log(itemImages); showItemsForm = false; itemImage = null; itemName = "";}} class="w-full mt-1 text-white bg-sunflower hover:bg-magma focus:ring-4 focus:outline-none focus:ring-magma font-medium rounded-lg text-sm px-5 py-1 text-center">Add</button>
+                                        {#if collection}
+                                        <button type="submit" on:click={showItemsForm = false} class="w-full mt-1 text-white bg-sunflower hover:bg-magma focus:ring-4 focus:outline-none focus:ring-magma font-medium rounded-lg text-sm px-5 py-1 text-center">Add</button>
+                                        {:else}
+                                        <label  class="block my-2 text-sm font-medium text-red-500">Enter sale name!</label>
+                                        {/if}
                                     </div>
                                 </form>
                                 {/if}
