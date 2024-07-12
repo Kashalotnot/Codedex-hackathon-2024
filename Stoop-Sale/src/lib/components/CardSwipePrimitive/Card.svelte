@@ -2,17 +2,16 @@
 	import { fade } from "svelte/transition";
 
 	export let element: HTMLElement;
-
-	export let color: string = '';
 	export let title: string = '';
 	export let description: string = '';
 	export let image: string | undefined = undefined;
 </script>
 
 <div
-	class="w-full h-full absolute cursor-grab ease-in-out rounded-xl  touch-none select-none bg-white {color}"
+	class="w-full h-full absolute cursor-grab ease-in-out rounded-xl  touch-none select-none bg-cream "
 	bind:this={element}
 >
+	<div class="absolute inset-0 bg-noise3 opacity-40"></div>
 	{#key image}
 		{#if image}
 			<img class="w-full h-full rounded-xl  max-h-full max-w-full object-scale-down" src={image} alt={title} />
@@ -27,4 +26,5 @@
 		</div>
 	</div>
 	</div>
+
 </div>

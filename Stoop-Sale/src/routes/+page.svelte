@@ -52,7 +52,7 @@
     const formattedHours = `${hours}:${minutes}`;
 </script>
 
-<div class="min-h-dvh bg-noise w-screen bg-cream bg-blend-soft-light overflow-x-hidden">
+<div class="min-h-dvh bg-noise3 w-screen bg-cream bg-blend-soft-light overflow-x-hidden">
     <div class="space-y-2">
         <div class="relative h-[400px]">
 
@@ -95,19 +95,23 @@
     </div>
     <div class="bg-cream w-full z-30 block md:hidden">
         <div class="flex justify-center items-center pb-3">
-            <h1 class="whitespace-break-spaces font-alphabet text-9xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
+            <h1 class=" mt-5 whitespace-break-spaces font-alphabet text-4xl xs:text-5xl sm:text-6xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
         </div>
     </div>
-    <div class="bg-primary-500 w-full " id="about-section">
+    <div class="bg-sunflower w-full bg-noise3 " id="about-section">
 
-        <div class="flex justify-center items-center">
-            <h1 class="font-alphabet text-9xl mb-3 text-secondary-500">ABOUT</h1>
-        </div>
+        <div class="relative w-full h-full flex justify-center items-center bg-sunflower">
+            <div class="absolute inset-0 bg-noise3 opacity-60"></div>
+            <h1 class="relative font-alphabet text-9xl mb-3 text-white">ABOUT</h1>
+          </div>
+          
     </div>
-    <div class="w-full h-dvh bg-charcoal flex justify-center items-center z-20" id="items-section">
-        <div class="w-[90%] h-[90%] block md:hidden">
-            <CardSwipe items={bebra} />
-        </div>
+    <div class="relative w-full h-screen bg-charcoal bg-blend-overlay flex justify-center items-center z-20" id="items-section">
+        <div class="absolute inset-0 bg-noise3 opacity-30"></div>
+        <div class="relative w-[90%] h-[90%] block md:hidden">
+          <CardSwipe items={bebra} />
+        
+      </div>
         
         <div class="w-full h-full absolute flex justify-center items-center hidden md:block">
             <div class="mt-8">
@@ -122,6 +126,7 @@
     <div class="flex flex-col md:flex-row md:justify-center items-center h-[25rem]">
         <div class="flex justify-center items-center bg-sunflower w-full h-full z-20 border-[3px] border-r-[2px] border-b-[2px] border-charcoal">
             <div class="flex flex-col justify-center items-center p-3">
+                
                 <h1 class="font-alphabet text-7xl mb-3 text-secondary-500">{formattedDate}</h1>
                 <h1 class="font-alphabet text-5xl mb-3 text-secondary-500">{formattedHours}</h1>
             </div>
