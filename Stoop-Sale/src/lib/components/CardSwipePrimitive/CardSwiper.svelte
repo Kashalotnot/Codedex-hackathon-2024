@@ -87,7 +87,7 @@
 		if (state.pressed) {
 			let rotate = state.movement[0] * 0.03 * (state.movement[1] / 80);
 
-			// fix movement on a curved path if anchor is set
+			
 			if (anchor) {
 				let vec = [state.movement[0], state.movement[1] - anchor];
 				let len = Math.sqrt(vec[0] ** 2 + vec[1] ** 2);

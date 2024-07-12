@@ -6,4 +6,4 @@ initializeStores();
 </script>
 
 <slot />
-<Toast class=""/>
+<Toast />
