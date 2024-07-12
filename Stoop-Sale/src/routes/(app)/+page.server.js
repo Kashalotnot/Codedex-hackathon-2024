@@ -24,9 +24,11 @@ export async function load() {
         const querySnapshot = await getDocs(stoopSaleCollection);
 
         querySnapshot.forEach((doc) => {
-            if (!stoopSale || (stoopSale && doc.data().Date > new Date()  &&stoopSale.Date < doc.data().Date)) {
+            console.log(doc.data().Date);
+            if (!stoopSale || (stoopSale && doc.data().Date < new Date()  && stoopSale.Date > doc.data().Date)) {
                 documentId = doc.id;
                 stoopSale = doc.data();
+                console.log('xyi ',  stoopSale.Date);
             }
         });
         stoopSale.Date = stoopSale.Date.toDate();

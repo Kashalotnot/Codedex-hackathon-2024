@@ -5,29 +5,17 @@
     import Map from '$lib/components/Map/map.svelte';
     import CardSwipe from '$lib/components/CardSwipe/cardSwipe.svelte';
     import CardStack from '$lib/components/CardStack/cardStack.svelte';
+import { getToastStore } from '@skeletonlabs/skeleton';
+const t = {
+	message: 'Thank you! We will send you an invitation three days before the event.',
+    background: 'bg-sunflower',
 
-    let bebra = [
-        {
-            name: "bebra",
-            description: 'Super bebra',
-            image: '/src/lib/assets/Items/jacket.png'
-        },
-        {
-            name: "Bebra",
-            description: 'Prost Norm bebra',
-            image: '/src/lib/assets/Items/jewellery.png'
-        },
-        {
-            name: "bebra",
-            description: 'Super bebra',
-            image: '/src/lib/assets/Items/sunglasses.png'
-        },
-        {
-            name: "Bebra",
-            description: 'Prost Norm bebra',
-            image: '/src/lib/assets/Items/dress.png'
-        }
-    ];
+};
+
+const toastStore = getToastStore();
+
+
+
   
     let swipe = function(direction) {
       if (direction === 'left') {
@@ -52,20 +40,22 @@
     const formattedHours = `${hours}:${minutes}`;
 </script>
 
+
+<!-- <AppShell>...</AppShell> -->
 <div class="min-h-dvh bg-noise3 w-screen bg-cream bg-blend-soft-light overflow-x-hidden">
     <div class="space-y-2">
         <div class="relative h-[400px]">
 
         <img class="md:hidden w-full h-[400px] mt-8 " src="/src/lib/assets/mobile_stairs.png">
         <div class="w-full h-full hidden md:inline">
-     <h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-[-40px] left-36 lg:left-48 xl:left-64 pb-3 text-secondary-500">
+     <h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-[-40px] left-36 lg:left-48 xl:left-64 pb-3 text-magma">
   {data.stoopSale.Name.split(' ')[0]}
 </h1>
-<h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-24 left-64 md:left-80 lg:left-96 xl:left-[35rem] pb-3 text-secondary-500">
-  {data.stoopSale.Name.split(' ')[1]}
+<h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-24 left-64 md:left-80 lg:left-96 xl:left-[35rem] pb-3 text-magma">
+  Stoop
 </h1>
-<h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-56 right-64 lg:right-80 xl:right-96 pb-3 text-secondary-500">
-  {data.stoopSale.Name.split(' ')[2]}
+<h1 class="absolute whitespace-break-spaces font-alphabet text-9xl top-56 right-64 lg:right-80 xl:right-96 pb-3 text-magma">
+  Sale
 </h1>
 </div>
 
@@ -96,15 +86,16 @@
     </div>
     <div class="bg-cream w-full z-30 block md:hidden">
         <div class="flex justify-center items-center pb-3">
-            <h1 class=" mt-5 whitespace-break-spaces font-alphabet text-4xl xs:text-5xl sm:text-6xl pb-3 text-secondary-500">{data.stoopSale.Name}</h1>
+            <h1 class=" mt-5 whitespace-break-spaces font-alphabet text-4xl xs:text-5xl sm:text-6xl pb-3 text-magma">{data.stoopSale.Name}</h1>
         </div>
     </div>
     <div class="relative flex flex-col sm:flex-row md:justify-center items-center w-full h-full mt-5 bg-sunflower bg-noise4" id="about-section">
         <!-- Image Container -->
         <div class="flex justify-center items-center w-full h-full z-20 ">
           <div class="flex flex-col justify-center items-center p-3 w-full h-full">
-            <img class="relative max-w-[80%] md:max-w-[60%] lg:max-w-[50%] max-h-[80%] my-5 rounded-xl object-contain z-10" src="src/lib/assets/image.png" alt="Image">
-          </div>
+            <img class="relative hidden sm:inline w-full lg:w-[70%] my-5 rounded-xl object-contain z-10" src="src/lib/assets/about.png" alt="Host picture">
+            <img class="relative inline sm:hidden w-full  my-5 rounded-xl object-contain z-10" src="src/lib/assets/image.png" alt="Host picture">
+        </div>
         </div>
       
         <!-- Text Container -->
@@ -114,7 +105,7 @@
                 <!-- Text and Image Container -->
                 <div class="relative bg-center">
                   <!-- Text Overlay -->
-                  <h1 class="mb-3 whitespace-nowrap font-alphabet text-5xl">
+                  <h1 class="mb-3 whitespace-nowrap font-alphabet text-5xl text-charcoal">
                     Nice to meet you!
                   </h1>
                   <!-- Stars Image -->
@@ -138,44 +129,47 @@
     <div class="relative w-full h-screen bg-charcoal bg-blend-overlay flex justify-center items-center z-20" id="items-section">
         <div class="absolute inset-0 bg-noise3 opacity-30"></div>
         <div class="relative w-[90%] h-[90%] block md:hidden">
-          <CardSwipe items={bebra} />
+            <h1 class="text-5xl font-alphabet text-sunflower text-center"> We love our items so much!</h1>
+            <h3 class="text-2xl text-cream text-center">But maybe you will love them even more</h3>
+          <CardSwipe items={data?.items} />
         
       </div>
         
         <div class="w-full h-full absolute flex justify-center items-center hidden md:block">
             <div class="mt-8">
             <h1 class="text-5xl font-alphabet text-sunflower text-center"> We love our items so much!</h1>
-            <h3 class="text-2xl text-cream text-center">But maybe you will love them more</h3>
+            <h3 class="text-2xl text-cream text-center">But maybe you will love them even more</h3>
         </div>
             <div class="flex w-full h-[80%] justify-center items-center">
-            <CardStack items={bebra}/>
+            <CardStack items={data?.items}/>
         </div>
         </div>
     </div>
     <div class="flex flex-col md:flex-row md:justify-center items-center h-[25rem]">
-        <div class="flex justify-center items-center bg-sunflower w-full h-full z-20 border-[3px] border-r-[2px] border-b-[2px] border-charcoal">
-            <div class="flex flex-col justify-center items-center p-3">
-                
-                <h1 class="font-alphabet text-7xl mb-3 text-secondary-500">{formattedDate}</h1>
-                <h1 class="font-alphabet text-5xl mb-3 text-secondary-500">{formattedHours}</h1>
-            </div>
+    <div class="flex justify-center items-center bg-sunflower bg-noise4 w-full h-full z-20 border-[3px] border-r-[2px] border-b-[2px] border-charcoal">
+        <div class="flex flex-col justify-center items-center p-3">
+            <h1 class="font-alphabet text-7xl mb-3 text-magma">{formattedDate}</h1>
+            <h1 class="font-alphabet text-5xl mb-3 text-magma">{formattedHours}</h1>
         </div>
-    
-        <div class="flex bg-charcoal w-full h-full z-20 border-[2px] border-t-[3px] border-charcoal" id="where-section">
-            <div class="flex justify-center w-full h-full">
-                <div class="flex justify-center  bg-cream border-[3px] mt-8 border-cream w-[95%] h-[80%] rounded-lg my-3">
-                    <div class="relative mt-10 bg-charcoal-secondary bottom- border-[3px] border-charcoal-secondary  w-[90%] h-60 rounded-lg my-3">
-                        <Map />
-                    </div>
+    </div>
+
+    <div class="flex justify-center items-center bg-charcoal w-full h-full z-20 border-[2px] border-t-[3px] border-charcoal" id="where-section">
+        
+        <div class="flex justify-center items-center w-full h-full">
+            <div class="flex justify-center items-center bg-cream border-[3px]  border-cream w-[95%] h-[80%] rounded-lg my-3">
+                <div class="relative w-[90%] bg-charcoal-secondary border-[3px] border-charcoal-secondary  h-[90%] rounded-lg">
+                    <Map />
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <div class="bg-cream w-full flex justify-center items-center p-4 border-[2px] border-b-0 border-charcoal mb-5">
         <div class="card p-4 variant-filled-primary am variant-filled w-5/6 shadow-2xl text-center mt-10 md:mt-2 md:w-1/2 xl:w-[40%]">
-            <form method="POST" action="?/addEmail" use:enhance>
+            <form method="POST" action="?/addEmail" use:enhance={()=>{toastStore.trigger(t)}}>
                 <label class="label block my-4">
-                    <span class="block mb-3 font-alphabet text-2xl text-magma">Let your email for invitation:</span>
+                    <span class="block mb-3 font-alphabet text-2xl text-magma">Recieve a personal invitation:</span>
                     <input class="bg-gray-100 border-[1px] border-sunflower shadow-md text-lg text-charcoal placeholder-charcoal-secondary text-sm rounded-lg focus:ring-magma focus:border-magma block w-full p-[8px] " type="email" title="Email" placeholder="Email" name="email" required>     
                 </label>
                 <button class="rounded-lg mt-2 mb-1 bg-magma hover:bg-sunflower p-1.5 w-1/2 border-[1.3px] border-charcoal font-alphabet text-sunflower text-xl hover:text-magma">Send</button>
