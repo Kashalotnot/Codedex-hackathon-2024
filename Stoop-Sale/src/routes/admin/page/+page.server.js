@@ -56,7 +56,6 @@ export const actions = {
             return redirect(302, '/admin/login');
         } catch (error) {
             console.error('Error signing out:', error);
-            // Handle error gracefully, potentially redirect to an error page
             throw error;
         }
     },
@@ -89,13 +88,27 @@ export const actions = {
     },
 
     addStoopSale: async ({ request }) => {
-        try{
+        try {
             const data = await request.formData();
+            
+            // Retrieve item names
             console.log('Data:', data);
-            console.log('images:', data.getAll('itemImages'));
+
+    
+            // Retrieve files
+            const itemImages = data.getAll('itemImages');
             
         } catch (error) {
             console.error('Error adding stoop sale:', error);
         }
+    },
+    addItem: async ({ request }) => {
+        try {
+            const data = await request.formData();
+            console.log('Data:', data);
+        } catch (error) {
+            console.error('Error adding item:', error);
+        }
     }
+    
 };
