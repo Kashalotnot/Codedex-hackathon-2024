@@ -21,18 +21,18 @@
 
 <slot />
 
-<footer class="bg-charcoal text-cream py-6">
+<footer class="bg-charcoal text-cream py-6 bg-noise4">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
                 <a href="/" class="text-xl font-bold">Stoop Sales</a>
             </div>
             <div class="flex space-x-4">
-                <a href="/" class="hover:text-gray-400">Home</a>
-                <a href="/" class="hover:text-gray-400">Socials</a>
+                <a href="/" class="hover:text-sunflower">Home</a>
+                <a href="/" class="hover:text-sunflower">Socials</a>
                 <!-- https://www.instagram.com/codedex.io/ -->
                  <!-- https://www.codedex.io/home -->
-                <a href="/admin/login" class="hover:text-gray-400">Admin</a>
+                <a href="/admin/login" class="hover:text-sunflower">Admin</a>
             </div>
         </div>
         <div class="mt-4 text-center">
