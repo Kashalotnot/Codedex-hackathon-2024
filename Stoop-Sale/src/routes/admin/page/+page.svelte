@@ -20,19 +20,6 @@
 
     let file;
     let collection;
-
-    function onRead() {
-        file = imageInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.addEventListener('load', function() {
-                imageInput.setAttribute('src', reader.result);
-            });
-            reader.readAsDataURL(file);
-
-            return;
-        }
-    }
 </script>
 <div class="relative h-[3rem] bg-charcoal-secondary w-full text-cream">
     <div class="absolute inset-0 flex justify-center items-center">
@@ -50,7 +37,10 @@
         <h2>{data.user.email}</h2>
     </div>
 
-    <button class="bg-charcoal rounded-lg p-2" on:click|stopPropagation={() => showForm = !showForm}>Add new admin</button> <!-- Step 2: Toggle form visibility -->
+    <div class="flex flex-col w-[30%] md:w-[15%]">
+        <button class="bg-charcoal rounded-lg p-2 mb-10" on:click|stopPropagation={() => showForm = !showForm}>Add new admin</button>
+        <button class="bg-charcoal rounded-lg p-2" on:click|stopPropagation={() => showStopSaleForm = !showStopSaleForm}>Add Stoop Sale</button>
+    </div>
     
     {#if showForm} 
         <div class="fixed right-[30%] flex justify-center items-center h-[40%] w-[40%]" on:click|stopPropagation>
@@ -77,7 +67,7 @@
         </div>
     {/if}
 
-    <button class="bg-charcoal rounded-lg p-2" on:click|stopPropagation={() => showStopSaleForm = !showStopSaleForm}>Add Stoop Sale</button>
+    
     
     {#if showStopSaleForm}
         <div class="fixed right-[30%] flex justify-center items-center h-[40%] w-[40%]" on:click|stopPropagation>
@@ -90,7 +80,7 @@
                         <form class="space-y-4 md:space-y-6" method="POST" action="?/addStoopSale" >
                             <div>
                                 <label for="name"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                <input type="text" bind:value={collection} name="name" id="name" class="rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Stoop Sale" required="">
+                                <input type="text" maxlength="8" bind:value={collection} name="name" id="name" class="rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Stoop Sale" required="">
                             </div>
                             <div>
                                 <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place</label>
