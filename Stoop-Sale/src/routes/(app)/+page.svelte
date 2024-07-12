@@ -141,8 +141,8 @@
             <div class="flex justify-center items-center w-full h-full">
                 <div class="flex justify-center items-center bg-cream border-[3px]  border-cream w-[95%] h-[80%] rounded-lg my-3">
                     <div class="relative w-[90%] bg-charcoal-secondary border-[3px] border-charcoal-secondary  h-[90%] rounded-lg">
-                        <img class="absolute w-36 top-[-5rem] right-[-5rem] z-30" src={data?.images[16]} alt="">
-                        <img class="absolute w-36 top-[-5rem] left-[-5rem] z-30 transform -scale-x-100" src={data?.images[16]} alt="">
+                        <img class="absolute w-36 top-[-5rem] right-[-5rem] z-30" src={data?.images[17]} alt="">
+                        <img class="absolute w-36 top-[-5rem] left-[-5rem] z-30 transform -scale-x-100" src={data?.images[17]} alt="">
 
                         <Map />
                     </div>
