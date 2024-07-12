@@ -64,11 +64,11 @@
     </div>
     <div class="w-full h-dvh bg-charcoal flex justify-center items-center z-20" id="items-section">
         <div class="w-[90%] h-[90%] block md:hidden">
-            <CardSwipe items={bebra} />
+            <CardSwipe items={data.items} />
         </div>
         <div class="w-full h-full absolute flex justify-center items-center hidden md:block">
             <div class="flex w-full h-full justify-center items-center">
-            <CardStack items={bebra}/>
+            <CardStack items={data.items}/>
         </div>
         </div>
     </div>
