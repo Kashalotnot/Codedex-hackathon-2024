@@ -20,10 +20,10 @@
 	{/key}
 	<div class="absolute inset-0 bg-gradient-to-t from-white/80 via-white/0 rounded-b-xl "></div>
 	<div class="p-0 absolute bottom-0 top w-full flex justify-center  ">
-		<div class="w-full h-full bg-primary-500 rounded-lg">
+		<div class="w-full h-full bg-cream rounded-lg">
 		<div class="flex items-center flex-col">
-			<h3 class="text-3xl font-semibold pb-2 text-secondary-500">{title}</h3>
-			<p class="text-secondary-400 pb-2">{description}</p>
+			<h3 class="text-3xl font-semibold pb-2 text-charcoal">{title}</h3>
+			<p class="text-charcoal-secondary pb-2">{description}</p>
 		</div>
 	</div>
 	</div>
