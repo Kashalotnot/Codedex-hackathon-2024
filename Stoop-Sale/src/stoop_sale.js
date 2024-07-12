@@ -26,7 +26,7 @@ export const stoop_sale = {
 		"--color-primary-200": "252 243 207", // #fcf3cf
 		"--color-primary-300": "251 235 178", // #fbebb2
 		"--color-primary-400": "247 220 120", // #f7dc78
-		"--color-primary-500": "244 205 62", // #f4cd3e
+		"--color-primary-500": "243 230 212", // #f4cd3e
 		"--color-primary-600": "220 185 56", // #dcb938
 		"--color-primary-700": "183 154 47", // #b79a2f
 		"--color-primary-800": "146 123 37", // #927b25
