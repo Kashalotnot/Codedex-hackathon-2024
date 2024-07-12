@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 
-// Your web app's Firebase configuration
+// firebase config for current hakathon
 const firebaseConfig = {
   apiKey: "AIzaSyDMxgd7wPkhEL8WkzY-2jKP-CBILomUEWI",
   authDomain: "hackathon-codedex-2024.firebaseapp.com",
